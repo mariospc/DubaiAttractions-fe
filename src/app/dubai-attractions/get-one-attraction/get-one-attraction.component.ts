@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AttractionsService } from '../../services/attractions.service';
 
 @Component({
   selector: 'app-get-one-attraction',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetOneAttractionComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private attractions:AttractionsService){
+    // console.log(id);
+    
+  }
   ngOnInit(): void {
   }
 
+  
 }
