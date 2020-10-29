@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GetAllAttractionsComponent } from './dubai-attractions/get-all-attractions/get-all-attractions.component';
-import { GetOneAttractionComponent } from './dubai-attractions/get-one-attraction/get-one-attraction.component';
+import { listAttractionComponent } from './dubai-attractions/list-attractions/list-attractions.component';
+import { AttractionComponent } from './dubai-attractions/attraction/attraction.component';
 import { LoginComponent } from './users/login/login.component';
 
 const routes: Routes = [
-  { path: 'attractions', component: GetAllAttractionsComponent },
-  { path: 'attractions/:title', component: GetOneAttractionComponent },
+  { path: 'attractions', component: listAttractionComponent },
+  { path: 'attractions/:title', component: AttractionComponent },
   { path: 'user/login', component: LoginComponent}
 ]
 

@@ -5,12 +5,12 @@ import { AttractionsService } from '../../services/attractions.service';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-get-all-attractions',
-  templateUrl: './get-all-attractions.component.html',
-  styleUrls: ['./get-all-attractions.component.css'],
+  selector: 'app-list-attractions',
+  templateUrl: './list-attractions.component.html',
+  styleUrls: ['./list-attractions.component.css'],
   providers: [NgbCarouselConfig]
 })
-export class GetAllAttractionsComponent implements OnInit {
+export class listAttractionComponent implements OnInit {
 
   attractionList;
   constructor(

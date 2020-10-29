@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GetAllAttractionsComponent } from './get-all-attractions.component';
+import { listAttractionComponent } from './list-attractions.component';
 
-describe('GetAllAttractionsComponent', () => {
-  let component: GetAllAttractionsComponent;
-  let fixture: ComponentFixture<GetAllAttractionsComponent>;
+describe('listAttractionComponent', () => {
+  let component: listAttractionComponent;
+  let fixture: ComponentFixture<listAttractionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetAllAttractionsComponent ]
+      declarations: [ listAttractionComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GetAllAttractionsComponent);
+    fixture = TestBed.createComponent(listAttractionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
