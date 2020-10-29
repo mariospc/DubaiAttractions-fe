@@ -1,16 +1,11 @@
-<div class="card" style="text-align: center;">
-  <img class="card-img-top" src="../../../fotos/Angle_view_of_Dubai_Frame.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div id="card" class="card">
+  <div class="card-header border-0">
+      <img src="//placehold.it/250" alt={{attractionItem.title}} style="cursor: pointer;">
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+  <div class="card-block px-2">
+      <h4 class="card-title" style="cursor: pointer;" id="imageTitle">{{attractionItem.title}}</h4>
+      <p class="card-text">{{attractionItem.short_info}}</p>
+      <button type="button" class="btn btn-info" (click)="onClickDetailsButton(attractionItem)">More Details</button>
   </div>
 </div>
+<br>

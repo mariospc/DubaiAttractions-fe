@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AttractionsService } from '../../services/attractions.service';
+import { Router } from '@angular/router';
+// import { Route } from '@angular/compiler/src/core';
+
 
 @Component({
   selector: 'app-attraction',
@@ -8,12 +11,20 @@ import { AttractionsService } from '../../services/attractions.service';
 })
 export class AttractionComponent implements OnInit {
 
-  constructor(private attractions:AttractionsService){
-    // console.log(id);
+  @Input() attractionItem
+  constructor(
+    private router: Router
+    ){
     
   }
   ngOnInit(): void {
   }
 
+  onClickDetailsButton(attraction){    
+    console.log(attraction);
+    
+    const url = '/attractions/' + attraction.objectId
+    this.router.navigate([url]);
+  }
   
 }

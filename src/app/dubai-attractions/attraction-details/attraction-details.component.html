@@ -1,0 +1,29 @@
+<div class="card" style="text-align: center;width: 100%;">
+    <img class="card-img-top" src="../../../fotos/Angle_view_of_Dubai_Frame.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h1 class="card-title">{{attractionItem.title}}</h1>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div>
+          {{attractionItem.short_info}}
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div>
+          <div>
+            {{attractionItem.description}}
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div>
+          <agm-map [latitude]="lng" [longitude]="lat" style="width: 1000px; height: 1000px;"></agm-map>
+        </div>
+      </li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
