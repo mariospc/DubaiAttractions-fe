@@ -6,7 +6,10 @@ import { UpdateAttractionComponent } from './update-attraction/update-attraction
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AttractionDetailsComponent } from './attraction-details/attraction-details.component';
 import { AgmCoreModule } from '@agm/core';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { ShareButtonModule } from 'ngx-sharebuttons/button';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons'
 
 
 @NgModule({
@@ -14,13 +17,16 @@ import { AgmCoreModule } from '@agm/core';
     listAttractionComponent,
     AttractionComponent,
     UpdateAttractionComponent,
-    AttractionDetailsComponent],
+    AttractionDetailsComponent,
+  ],
   imports: [
     CommonModule,
     NgbModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCJwyWnufTsvPNTzZUjfEHjvM0X4JshIWY'
-    })
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCJwyWnufTsvPNTzZUjfEHjvM0X4JshIWY' }),
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    ShareButtonModule,
+    ShareIconsModule 
   ],
   exports: [
     listAttractionComponent,

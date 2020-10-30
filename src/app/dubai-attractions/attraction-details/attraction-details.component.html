@@ -1,29 +1,34 @@
-<div class="card" style="text-align: center;width: 100%;">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="card" style="text-align: center;width: 80%;border: 1px solid black;margin: auto;">
     <img class="card-img-top" src="../../../fotos/Angle_view_of_Dubai_Frame.jpg" alt="Card image cap">
     <div class="card-body">
-      <h1 class="card-title">{{attractionItem.title}}</h1>
+      <h1 class="card-title">{{title}}</h1>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <div>
-          {{attractionItem.short_info}}
+          {{short_info}}
         </div>
       </li>
       <li class="list-group-item">
         <div>
           <div>
-            {{attractionItem.description}}
+            {{description}}
           </div>
         </div>
       </li>
       <li class="list-group-item">
         <div>
-          <agm-map [latitude]="lng" [longitude]="lat" style="width: 1000px; height: 1000px;"></agm-map>
+          <agm-map [latitude]="lat" [longitude]="lng" style="width: auto; height: 500px;" [zoom]="15" [mapTypeId]="mapTypeId">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
         </div>
       </li>
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <share-button button="facebook" theme="circles-dark" [icon]="fbIcon"></share-button>
+      <share-button button="twitter" theme="circles-dark" [icon]="tweetIcon"></share-button>
+      <share-button button="pinterest" theme="circles-dark" [icon]="pinIcon"></share-button>
     </div>
   </div>
+  <ngx-spinner></ngx-spinner>

@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { UsersModule } from './users/users.module';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DubaiAttractionsModule } from './dubai-attractions/dubai-attractions.module';
 
 @NgModule({
@@ -29,7 +30,7 @@ import { DubaiAttractionsModule } from './dubai-attractions/dubai-attractions.mo
   exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [NgbModalConfig, NgbModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

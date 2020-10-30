@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AttractionsService } from '../../services/attractions.service';
 import { Router } from '@angular/router';
-// import { Route } from '@angular/compiler/src/core';
 
 
 @Component({

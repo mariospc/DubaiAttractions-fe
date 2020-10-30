@@ -1,36 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { AttractionsService } from '../../services/attractions.service';
 import { ActivatedRoute } from '@angular/router';
-import { AgmCoreModule } from '@agm/core'
+import { NgxSpinnerService } from 'ngx-spinner';
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
+import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons/faTwitterSquare';
+import { faPinterest } from '@fortawesome/free-brands-svg-icons/faPinterest';
+
+
 @Component({
   selector: 'app-attraction-details',
   templateUrl: './attraction-details.component.html',
   styleUrls: ['./attraction-details.component.css'],
-  // providers: [ AgmCoreModule ]
+  // providers: [ AgmCoreModule, ShareButtonsModule ]
 })
 export class AttractionDetailsComponent implements OnInit {
   attractionItem;
-  lat = 55.186147;
-  lng = 25.141975;
-  googleMapType = 'satellite';
+  lat;
+  lng;
+  mapTypeId = 'terrain';
+  title = '';
+  short_info = '';
+  description = '';
+  fbIcon = faFacebookSquare;
+  pinIcon = faPinterest;
+  tweetIcon = faTwitterSquare;
+  
   constructor(
     private activatedRoute:ActivatedRoute,
-    private attractionsService: AttractionsService) {
+    private attractionsService: AttractionsService,
+    private spinner: NgxSpinnerService
+    ) {
+      
       this.activatedRoute.paramMap.subscribe(data=>{
         const id = data.get('id');      
-        this.attractionsService.getAttractionByID(id).subscribe(data =>{    
-          console.log(data);
+        this.attractionsService.getAttractionByID(id).subscribe(data =>{      
+          console.log('data', data);
+             
+          // this.attractionItem = data;
+          this.title = data['title'];
+          this.short_info = data['short_info'];
+          this.description = data['description'];
+          console.log(data['location']);
           
-          this.attractionItem = data;
-          // this.lat = this.attractionItem[0];
-          // this.lng = this.attractionItem[1];
-        }); 
-        
-      })
+          this.lat = data['location'][1];
+          this.lng = data['location'][0];
+          this.spinner.hide();     
+
+        });    
+      });      
      }
 
   ngOnInit(): void {
-    
+    this.spinner.show();
   }
 
 }

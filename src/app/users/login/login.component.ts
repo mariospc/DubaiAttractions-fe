@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @Input() view;
+  constructor(private eRef: ElementRef) { }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if(this.eRef.nativeElement.contains(event.target)) {
+      console.log('inside');
+      
+      this.view = true;
+    } else {
+      console.log('outside');
+
+      this.view = false;
+    }
+
   }
 
 }

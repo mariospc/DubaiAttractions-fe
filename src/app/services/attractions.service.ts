@@ -13,6 +13,6 @@ export class AttractionsService {
   }
 
   getAttractionByID(id){
-    return this.httpClient.get(`/api/attractions/filter?attraction_id=${id}`);
+    return this.httpClient.get(`/api/attractions/${id}`);
   }
 }
