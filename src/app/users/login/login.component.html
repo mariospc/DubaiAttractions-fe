@@ -1,19 +1,23 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
-<div class="wrapper fadeInDown"  style="border: 1px solid blue;width: fit-content;margin: auto;">
+<div class="wrapper fadeInDown" style="width: fit-content;margin: auto;" *ngIf = "display">
   <div id="formContent">
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+    <form #loginForm="ngForm">
+      <div>
+        <input required #username="ngModel" type="text" id="username" class="fadeIn second" name="username" placeholder="username" ngModel>
+        <input required #password="ngModel" type="password" id="password" class="fadeIn third" name="password" placeholder="password" ngModel>     
+        <input type="button" class="fadeIn fourth" value="Log In"  (click)="submitLogIn(loginForm.value)" [disabled]="password.valid && username.valid?false:true">
+        <!-- <br> -->
+        <span *ngIf="password.invalid || username.invalid">Required Fields</span>
+      </div>
+      <span *ngIf="incorrectData">Username or Password are incorrect. Please try again!</span>
     </form>
     <div id="formFooter" style="text-align: center;">
       <a class="underlineHover" href="#">Forgot Password?</a>
       <br>
       <a class="underlineHover" href="#">Sign Up</a>
     </div>
-
   </div>
 </div>

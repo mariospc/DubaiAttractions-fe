@@ -33,14 +33,11 @@ export class AttractionDetailsComponent implements OnInit {
       
       this.activatedRoute.paramMap.subscribe(data=>{
         const id = data.get('id');      
-        this.attractionsService.getAttractionByID(id).subscribe(data =>{      
-          console.log('data', data);
-             
+        this.attractionsService.getAttractionByID(id).subscribe(data =>{                   
           // this.attractionItem = data;
           this.title = data['title'];
           this.short_info = data['short_info'];
           this.description = data['description'];
-          console.log(data['location']);
           
           this.lat = data['location'][1];
           this.lng = data['location'][0];

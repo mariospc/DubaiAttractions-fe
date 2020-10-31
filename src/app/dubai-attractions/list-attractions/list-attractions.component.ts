@@ -19,21 +19,19 @@ export class listAttractionComponent implements OnInit {
     config: NgbCarouselConfig,
     private spinner: NgxSpinnerService
     ) {
-      this.spinner.show();
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 2000);
     this.attractions.getAttractions().subscribe(data =>{     
-      this.attractionList = data;      
+      this.attractionList = data; 
+      this.spinner.hide();     
     }); 
     config.interval = 2000;
     config.keyboard = true;
     config.pauseOnHover = true;
-    this.spinner.hide('spinner');
+    
   }
 
   ngOnInit(): void {
-    
+    this.spinner.show();
+
   }
 
 }

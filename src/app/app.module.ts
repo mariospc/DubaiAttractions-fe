@@ -11,6 +11,9 @@ import { HttpClientModule} from '@angular/common/http';
 import { UsersModule } from './users/users.module';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DubaiAttractionsModule } from './dubai-attractions/dubai-attractions.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @NgModule({
   declarations: [
@@ -26,11 +29,12 @@ import { DubaiAttractionsModule } from './dubai-attractions/dubai-attractions.mo
     HttpClientModule,
     DubaiAttractionsModule,
     UsersModule,
+    NgxSpinnerModule
   ],
   exports: [
     RouterModule
   ],
-  providers: [NgbModalConfig, NgbModal],
+  providers: [NgbModalConfig, NgbModal, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

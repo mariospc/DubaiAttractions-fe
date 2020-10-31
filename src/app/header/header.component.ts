@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { UserService } from '../services/user.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +11,20 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  display = false
-  constructor(private router:Router) { }
+  user;
+  view = false
+  constructor(
+    private router:Router,
+    private userService: UserService,
+    private spinner: NgxSpinnerService,
+    private cookieService: CookieService
+    ) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {   
+    if (this.userService.getUserFromCookies() !== ''){     
+        this.user = this.userService.getUserFromCookies().username;
+    }
+    
   }
 
   goHome() {
@@ -21,6 +33,19 @@ export class HeaderComponent implements OnInit {
   }
 
   logIn(){
-    this.display = true;
+    this.view = true;  
+    // this.user = this.userService.getUserFromCookies().username;      
+  }
+
+  logOut(){
+    this.spinner.show();
+    this.userService.logOut().subscribe(response => {
+      this.user = undefined;
+      this.spinner.hide();
+    })
+  }
+
+  submitLogIn(username){
+    this.user = username;    
   }
 }

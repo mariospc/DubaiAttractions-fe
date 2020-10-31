@@ -2,8 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FormsModule} from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CookieService } from 'ngx-cookie-service';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -11,17 +14,18 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     LoginComponent,
     SignupComponent,
-    LogoutComponent,
     ProfileComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    NgxSpinnerModule
   ],
   exports:[
     LoginComponent,
     SignupComponent,
-    LogoutComponent,
     ProfileComponent
-  ]
+  ],
+  providers: [NgbModalConfig, NgbModal, CookieService],
 })
 export class UsersModule { }

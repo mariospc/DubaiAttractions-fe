@@ -1,20 +1,27 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="navbar-collapse" id="navbarNav" >
+      <ul class="navbar-nav" style="width: 100%;">
         <li class="nav-item active">
           <a class="nav-link" (click)="goHome()">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link">Features</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)= "logIn()">Log In</a>
-        </li>
+          <li *ngIf = "user == undefined">
+            <a class="nav-link" (click)= "logIn()" id="logIn">Log In</a>
+          </li>
+          <li class="nav-item" *ngIf = "user !== undefined">
+            <a class="nav-link" (click)= "logOut()" id="logOut">Log Out</a>
+          </li>
+          <li style="margin-left: auto;" *ngIf = "user !== undefined">
+            <span class="nav-link" style="float: right;">Welcome {{user}}!</span>
+          </li>
       </ul>
     </div>
   </nav>
 
   <div style="width: fit-content;margin: auto;"> 
-    <app-login *ngIf="display" (view)=display></app-login>
+    <app-login [display]="view" (userLogIn)="submitLogIn($event)"></app-login>
   </div>
+  <ngx-spinner></ngx-spinner>

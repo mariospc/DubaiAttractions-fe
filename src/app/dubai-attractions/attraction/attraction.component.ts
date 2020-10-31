@@ -19,9 +19,7 @@ export class AttractionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickDetailsButton(attraction){    
-    console.log(attraction);
-    
+  onClickDetailsButton(attraction){        
     const url = '/attractions/' + attraction.objectId
     this.router.navigate([url]);
   }
