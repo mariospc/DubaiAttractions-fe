@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { CookieService } from 'ngx-cookie-service';
+// import { AttractionComponent } from '../dubai-attractions/attraction/attraction.component';
 
 @Component({
   selector: 'app-header',
@@ -17,14 +17,13 @@ export class HeaderComponent implements OnInit {
     private router:Router,
     private userService: UserService,
     private spinner: NgxSpinnerService,
-    private cookieService: CookieService
+    // private attractionComponent: AttractionComponent
     ) { }
 
-  ngOnInit(): void {   
-    if (this.userService.getUserFromCookies() !== ''){     
-        this.user = this.userService.getUserFromCookies().username;
+  ngOnInit(): void {       
+    if (JSON.parse(this.userService.getUserFromCookies('user')) !== undefined){     
+      this.user = JSON.parse(this.userService.getUserFromCookies('user')).username;
     }
-    
   }
 
   goHome() {
@@ -34,7 +33,7 @@ export class HeaderComponent implements OnInit {
 
   logIn(){
     this.view = true;  
-    // this.user = this.userService.getUserFromCookies().username;      
+    // this.attractionComponent.ngOnInit();
   }
 
   logOut(){

@@ -28,11 +28,27 @@ export class UserService {
     return this.httpClient.get(`${this.userServicePref}logout`)
   }
 
-  getUserFromCookies(){
-    return JSON.parse(this.cookieService.get('user'));
+  getUserFromCookies(param){
+    if (this.cookieService.get(param) == ''){
+      return undefined;
+    }    
+    return this.cookieService.get(param);
   }
 
-  setUserCookiee(user){
+  setUserCookie(user){
+    console.log(user.username);
+    
     this.cookieService.set( 'user', JSON.stringify(user));
+    this.cookieService.set( 'name', user.username);
+  }
+
+  isAdmin(){    
+    if (this.getUserFromCookies('user') === undefined){     
+      return false;
+    }else if (JSON.parse(this.getUserFromCookies('user')).username !== 'admin') {
+      return false;
+    }else {
+      return true;
+    }
   }
 }

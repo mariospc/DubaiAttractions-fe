@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class listAttractionComponent implements OnInit {
 
+  user;
   attractionList;
   constructor(
     private attractions:AttractionsService,
@@ -31,7 +32,6 @@ export class listAttractionComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-
   }
 
 }

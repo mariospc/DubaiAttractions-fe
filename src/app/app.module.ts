@@ -15,11 +15,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CookieService } from 'ngx-cookie-service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

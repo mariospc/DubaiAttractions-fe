@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       this.incorrectData = false;
       this.display = false;
       this.userLogIn.emit(response['user'].username);
-      this.userService.setUserCookiee(response['user']);
+      this.userService.setUserCookie(response['user']);
       this.spinner.hide();
     }, 
     (error: HttpErrorResponse) =>{

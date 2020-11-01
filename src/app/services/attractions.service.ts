@@ -15,4 +15,8 @@ export class AttractionsService {
   getAttractionByID(id){
     return this.httpClient.get(`/api/attractions/${id}`);
   }
+
+  updateAttraction(body){
+    
+  }
 }

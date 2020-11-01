@@ -14,6 +14,7 @@ import { faPinterest } from '@fortawesome/free-brands-svg-icons/faPinterest';
   // providers: [ AgmCoreModule, ShareButtonsModule ]
 })
 export class AttractionDetailsComponent implements OnInit {
+  show=true;
   attractionItem;
   lat;
   lng;
@@ -21,6 +22,7 @@ export class AttractionDetailsComponent implements OnInit {
   title = '';
   short_info = '';
   description = '';
+  url = '';
   fbIcon = faFacebookSquare;
   pinIcon = faPinterest;
   tweetIcon = faTwitterSquare;
@@ -38,6 +40,7 @@ export class AttractionDetailsComponent implements OnInit {
           this.title = data['title'];
           this.short_info = data['short_info'];
           this.description = data['description'];
+          this.url = data['url'];
           
           this.lat = data['location'][1];
           this.lng = data['location'][0];

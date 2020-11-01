@@ -1,11 +1,10 @@
-<div id="card" class="card">
-  <div class="card-header border-0">
-      <img src="//placehold.it/250" alt={{attractionItem.title}} style="cursor: pointer;">
-  </div>
+<div id="card" class="card" style="border: 1px solid blue;margin-right: 5%;margin-left: 5%">
+  <img src="//placehold.it/250" alt={{attractionItem.title}} style="margin: 0;">
   <div class="card-block px-2">
-      <h4 class="card-title" style="cursor: pointer;" id="imageTitle">{{attractionItem.title}}</h4>
-      <p class="card-text">{{attractionItem.short_info}}</p>
-      <button type="button" class="btn btn-info" (click)="onClickDetailsButton(attractionItem)">More Details</button>
+      <h4 class="card-title" id="imageTitle">{{attractionItem.title}}</h4>
+      <p class="card-text" style="text-align: justify;">{{attractionItem.short_info}}</p>
+      <button type="button" class="btn btn-info" (click)="onClickDetailsButton(attractionItem)" style="margin-bottom: 5%;">More Details</button>
+      <button class="btn btn-primary" style="margin-bottom: 5%;float: right;" *ngIf="userService.isAdmin()" (click)="onClickDetailsButton(attractionItem)">Edit</button>
   </div>
 </div>
 <br>
