@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { LoginComponent } from '../users/login/login.component';
 // import { AttractionComponent } from '../dubai-attractions/attraction/attraction.component';
 
 @Component({
@@ -11,13 +12,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class HeaderComponent implements OnInit {
 
+  @ViewChild(LoginComponent) loginComponent:LoginComponent
   user;
   view = false
   constructor(
     private router:Router,
     private userService: UserService,
     private spinner: NgxSpinnerService,
-    // private attractionComponent: AttractionComponent
     ) { }
 
   ngOnInit(): void {       
@@ -32,8 +33,8 @@ export class HeaderComponent implements OnInit {
   }
 
   logIn(){
-    this.view = true;  
-    // this.attractionComponent.ngOnInit();
+    this.view = true; 
+    this.loginComponent.ngOnInit(); 
   }
 
   logOut(){
@@ -41,6 +42,7 @@ export class HeaderComponent implements OnInit {
     this.userService.logOut().subscribe(response => {
       this.user = undefined;
       this.spinner.hide();
+      this.goHome();
     })
   }
 

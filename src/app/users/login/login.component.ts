@@ -11,9 +11,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class LoginComponent implements OnInit {
 
-  @Input() display;
+  @Input() logInDisplay;
   @Output() userLogIn = new EventEmitter<string>();
-  message;
+  viewSignUp;
   incorrectData;
   constructor(
     private eRef: ElementRef,
@@ -24,27 +24,32 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.logInDisplay = false;
+    this.incorrectData = false;
+    this.viewSignUp = false;
   }
 
   @HostListener('document:click', ['$event'])
   clickout(event) {    
-    if(this.eRef.nativeElement.contains(event.target)) {
-      this.display = true;
+    // when clicking outside of the pop up disappear/ when inside remain
+    if(this.eRef.nativeElement.contains(event.target)) {      
+     if (this.viewSignUp === false){
+      this.logInDisplay = true;
+     }  
     } else {      
       if(event.target.id == 'logIn'){
-        this.display = true;
+        this.logInDisplay = true;
       }else {
-        this.display = false;
+        this.logInDisplay = false;
       }
     }
-    
   }
 
-  submitLogIn(data){
+  submitLogIn(data){    
     this.spinner.show()    
     this.userService.logIn(data).subscribe(response =>{      
       this.incorrectData = false;
-      this.display = false;
+      this.logInDisplay = false;
       this.userLogIn.emit(response['user'].username);
       this.userService.setUserCookie(response['user']);
       this.spinner.hide();
@@ -53,6 +58,11 @@ export class LoginComponent implements OnInit {
       this.incorrectData = true
       this.spinner.hide();
     })
+  }
+
+  signUp(){
+    this.logInDisplay = false;
+    this.viewSignUp = true;
   }
 
 }

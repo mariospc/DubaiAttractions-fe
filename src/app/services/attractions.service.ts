@@ -17,6 +17,6 @@ export class AttractionsService {
   }
 
   updateAttraction(body){
-    
+    return this.httpClient.put('/api/attractions', body);
   }
 }

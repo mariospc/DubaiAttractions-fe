@@ -28,6 +28,10 @@ export class UserService {
     return this.httpClient.get(`${this.userServicePref}logout`)
   }
 
+  signUp(body){
+    return this.httpClient.post(this.userServicePref, body);
+  }
+
   getUserFromCookies(param){
     if (this.cookieService.get(param) == ''){
       return undefined;
@@ -35,17 +39,15 @@ export class UserService {
     return this.cookieService.get(param);
   }
 
-  setUserCookie(user){
-    console.log(user.username);
-    
+  setUserCookie(user){    
     this.cookieService.set( 'user', JSON.stringify(user));
     this.cookieService.set( 'name', user.username);
   }
 
-  isAdmin(){    
+  isAdmin(){        
     if (this.getUserFromCookies('user') === undefined){     
       return false;
-    }else if (JSON.parse(this.getUserFromCookies('user')).username !== 'admin') {
+    }else if (JSON.parse(this.getUserFromCookies('user')).username !== 'admin') {      
       return false;
     }else {
       return true;

@@ -19,3 +19,11 @@ a {
     font-size: x-large;
 }
 
+.card-body, li {
+    background-color: brown;
+}
+
+.title {
+    margin-top: 50px;
+    font-size: x-large;
+}

@@ -9,7 +9,9 @@ import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { ShareButtonModule } from 'ngx-sharebuttons/button';
-import { ShareIconsModule } from 'ngx-sharebuttons/icons'
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { FormsModule} from '@angular/forms';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons'
     NgxSpinnerModule,
     BrowserAnimationsModule,
     ShareButtonModule,
-    ShareIconsModule 
+    ShareIconsModule,
+    FormsModule
   ],
   exports: [
     listAttractionComponent,
