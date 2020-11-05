@@ -4,6 +4,7 @@ import { AttractionsService } from '../../services/attractions.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class UpdateAttractionComponent implements OnInit {
     private attractionsService:AttractionsService,
     private toast: ToastrService,
     private activatedRoute:ActivatedRoute,
-
+    private ng2ImgMax: Ng2ImgMaxService
   ) {
     this.activatedRoute.paramMap.subscribe(data=>{
       spinner.show();
@@ -48,7 +49,8 @@ export class UpdateAttractionComponent implements OnInit {
         
         this.lng = data['location'][0];
         this.lat = data['location'][1];
-        // this.photo = data['photo'];
+        this.photo = data['photo'].url;
+        
         this.spinner.hide();     
       });    
     });      
@@ -100,15 +102,28 @@ export class UpdateAttractionComponent implements OnInit {
  
     var reader = new FileReader();
     this.imagePath = files;
-    reader.readAsDataURL(files[0]); 
+    this.ng2ImgMax.resizeImage(files[0], 250, 250).subscribe(
+      resizedFile => {
+        reader.readAsDataURL(resizedFile); 
     
-    reader.onload = (_event) => {       
-      this.photo = reader.result.toString().split(',')[1];
-      this.imgURL = reader.result; 
-      console.log(reader.result);
+        reader.onload = (_event) => {       
+          this.photo = reader.result.toString().split(',')[1];
+          this.imgURL = reader.result;       
+        },
+      error => {
+        console.log('😢 Oh no!', error);
+      };
       
-    }
+    });
   }
+    // reader.readAsDataURL(files[0]); 
+    
+    //     reader.onload = (_event) => {       
+    //       this.photo = reader.result.toString().split(',')[1];
+    //       this.imgURL = reader.result;       
+    //     }
+    //   }
+  
 
   discardImage(){
     this.imgURL = "https://via.placeholder.com/250x250?text=Up+to+5Mb+image";

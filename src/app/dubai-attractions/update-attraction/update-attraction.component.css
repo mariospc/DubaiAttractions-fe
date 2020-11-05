@@ -20,10 +20,10 @@ a {
 }
 
 .card-body, li {
-    background-color: brown;
+    background-color: teal;
 }
 
 .title {
-    margin-top: 50px;
     font-size: x-large;
+    text-align: center;
 }

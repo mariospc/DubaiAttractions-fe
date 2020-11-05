@@ -1,24 +1,30 @@
-<!-- <link media="all" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<div class="card" style="text-align: center;width: 80%;border: 1px solid black;margin-left: auto; margin-right: auto;border-radius: 10%;">
-    <img class="card-img-top" src="../../../fotos/Angle_view_of_Dubai_Frame.jpg" alt="Card image cap" style="margin-top: 30px;">
-        <div class="card-body title" style="text-align: justify;">
-            <span class="badge badge-pill badge-primary" style="display: flex;width: fit-content;">Title</span>
+<link media="all" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="card" style="text-align: center;width: 80%;margin-left: auto; margin-right: auto;border: 5px solid cadetblue">
+    <div style="max-height: 500px;display: flex;">
+        <img class="card-img-top" src={{photo}} alt="Card image cap" style="margin-top: 30px;">
+    </div>
+    <!-- <div class="card-body title" style="text-align: justify;">
+        <span class="badge badge-pill badge-primary" style="display: flex;width: fit-content;">Title</span>
+        <input [(ngModel)] = "title" />
+    </div> -->
+    <ul class="list-group list-group-flush">
+        <li class="title" style="list-style-type:none;">
+            <span class="badge badge-pill badge-primary" style="display: flex;width: fit-content;margin: auto;display: flex; margin-bottom: 10px;width: fit-content;margin-top: 10px;font-size:xx-large;">Title</span>
             <input [(ngModel)] = "title" />
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+        </li>
+        <li class="list-group-item">
             <span class="badge badge-pill badge-primary">Short Info
                 <i class="fa fa-info-circle" style="font-size: 35px;"></i>
             </span>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)] = "short_info"></textarea>
-            </li>
-            <li class="list-group-item">
+        </li>
+        <li class="list-group-item">
             <span class="badge badge-pill badge-primary">Description
                 <i class="fa fa-file-text" style="font-size: 35px;"></i>
             </span>
             <textarea class="form-control" rows="10" [(ngModel)] = "description"></textarea>
-            </li>
-            <li class="list-group-item">
+        </li>
+        <li class="list-group-item">
             <div>
                 <span class="badge badge-pill badge-primary">
                 Location
@@ -30,14 +36,14 @@
                 <agm-marker [(latitude)]="lat" [(longitude)]="lng"></agm-marker>
                 </agm-map>
             </div>
-            </li>
-            <li class="list-group-item" style="text-align: center;">
+        </li>
+        <li class="list-group-item" style="text-align: center;">
             <span class="badge badge-pill badge-primary" style="margin-right: 20px;">Official Website
                 <i class="fa fa-link" style="font-size: 35px;"></i>
             </span>
             <input class="form-control input-lg"  [(ngModel)]="url" style="width: inherit;margin: auto;">
-            </li>
-            <li class="list-group-item" style="text-align: center;">
+        </li>
+        <li class="list-group-item" style="text-align: center;">
             <span class="badge badge-pill badge-primary" style="margin-right: 20px;">Change Image
                 <i class="fa fa-paperclip" style="font-size: 35px;"></i>
             </span>
@@ -56,10 +62,10 @@
                 <button class="btn btn-danger" (click)="discardImage()">Discard Image</button>
                 </div>
             </form>
-            </li>
-        </ul>
-        <div class="card-body">
-            <button class="btn btn-success" type="submit" style="margin: 20px 0 10px 0;font-size: 150%;" (click)="updateAttraction()">Update</button>
-        </div>
+        </li>
+    </ul>
+    <div class="card-body">
+        <button class="btn btn-light" type="submit" style="margin: 20px 0 10px 0;font-size: 150%;background-color: antiquewhite;" (click)="updateAttraction()">Update</button>
+    </div>
 </div>
 <ngx-spinner></ngx-spinner>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AttractionsService } from '../../services/attractions.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -17,12 +18,12 @@ export class AttractionComponent implements OnInit {
   @Input() attractionItem
   constructor(
     private router: Router,
-    public userService: UserService
+    public userService: UserService,
+    private spinner: NgxSpinnerService
     ){
     
   }
-  ngOnInit(): void {       
-
+  ngOnInit(): void {          
     if (this.attractionItem.photo !== undefined){
       this.imgUrl = this.attractionItem.photo.url;
     }
