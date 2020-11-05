@@ -25,6 +25,7 @@ export class UserService {
   
   logOut(){
     this.cookieService.delete( 'user');
+    this.cookieService.delete( 'name');
     return this.httpClient.get(`${this.userServicePref}logout`)
   }
 

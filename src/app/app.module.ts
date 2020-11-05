@@ -13,6 +13,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DubaiAttractionsModule } from './dubai-attractions/dubai-attractions.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CookieService } from 'ngx-cookie-service';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
 
 
 
@@ -30,7 +31,8 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     DubaiAttractionsModule,
     UsersModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    Ng2ImgMaxModule
   ],
   exports: [
     RouterModule

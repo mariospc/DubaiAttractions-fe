@@ -11,6 +11,11 @@ h4 {
     }
   }
 
-button{
+button, a {
     cursor: pointer;
+}
+
+h4 :hover {
+    color: blue;
+    text-decoration: underline;
 }

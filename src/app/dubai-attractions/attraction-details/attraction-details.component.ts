@@ -5,7 +5,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
 import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons/faTwitterSquare';
 import { faPinterest } from '@fortawesome/free-brands-svg-icons/faPinterest';
-import { UserService } from '../../services/user.service';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
+
+
 
 
 @Component({
@@ -25,22 +28,20 @@ export class AttractionDetailsComponent implements OnInit {
   short_info = '';
   description = '';
   url = '';
+  photo;
   fbIcon = faFacebookSquare;
   pinIcon = faPinterest;
   tweetIcon = faTwitterSquare;
-  successMessage = false;
-  failureMessage = false;
   
   constructor(
     private activatedRoute:ActivatedRoute,
     private attractionsService: AttractionsService,
     private spinner: NgxSpinnerService,
-    private userService: UserService
+    private toast: ToastrService
     ) {
-      
       this.activatedRoute.paramMap.subscribe(data=>{
         const id = data.get('id');      
-        this.attractionsService.getAttractionByID(id).subscribe(data =>{             
+        this.attractionsService.getAttractionByID(id).subscribe(data =>{                       
           this.objectId = data['objectId']                
           this.title = data['title'];
           this.short_info = data['short_info'];
@@ -49,8 +50,8 @@ export class AttractionDetailsComponent implements OnInit {
           
           this.lng = data['location'][0];
           this.lat = data['location'][1];
+          this.photo = data['photo'];
           this.spinner.hide();     
-
         });    
       });      
      }
@@ -72,11 +73,11 @@ export class AttractionDetailsComponent implements OnInit {
 
     this.attractionsService.updateAttraction(body).subscribe(data =>{
       this.spinner.hide();
-      this.successMessage = true;
-    //   setTimeout(function () { 
-    //     this.successMessage = false;
-    // }, 2000); 
+      this.toast.success('Attraction updated successfully!');
+    },
+    (error: HttpErrorResponse) =>{
+      this.toast.error('Error on update!');
+      this.spinner.hide();
     });
-    
   }
 }

@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShareButtonModule } from 'ngx-sharebuttons/button';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { FormsModule} from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -29,7 +30,12 @@ import { FormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     ShareButtonModule,
     ShareIconsModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   exports: [
     listAttractionComponent,

@@ -1,8 +1,8 @@
 <link media="all" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="card" style="text-align: center;width: 80%;border: 1px solid black;margin-left: auto; margin-right: auto;border-radius: 10%;">
-    <img class="card-img-top" src="../../../fotos/Angle_view_of_Dubai_Frame.jpg" alt="Card image cap" style="margin-top: 30px;">
-    <h1  *ngIf ="'userService.isAdmin() == true' then adminblock else guestblock"></h1>
-    <ng-template #adminblock>
+    <img class="card-img-top" src="photo" alt="Card image cap" style="margin-top: 30px;">
+    <!-- <h1  *ngIf ="'userService.isAdmin() == true' then adminblock else guestblock"></h1> -->
+    <!-- <ng-template #adminblock>
       <div class="card-body title" style="text-align: justify;">
         <span class="badge badge-pill badge-primary" style="display: flex;width: fit-content;">Title</span>
         <input [(ngModel)] = "title" />
@@ -62,8 +62,8 @@
       <div class="card-body">
         <button class="btn btn-success" type="submit" style="margin: 20px 0 10px 0;font-size: 150%;" (click)="UpdateAttraction()">Update</button>
       </div>
-    </ng-template>
-    <ng-template #guestblock>
+    </ng-template> -->
+    <!-- <ng-template #guestblock> -->
       <div class="card-body title">
         <h1 class="card-title">{{title}}</h1>
       </div>
@@ -108,8 +108,8 @@
         <share-button button="pinterest" text="pin" [showText]="true"></share-button>
         <br>
       </div>
-      </ng-template>
+      <!-- </ng-template> -->
   </div>
   <ngx-spinner></ngx-spinner>
-  <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = false" style="margin: 0 auto;z-index: 99;">Attraction successfully Updated</ngb-alert>
+  <!-- <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = false" style="margin: 0 auto;z-index: 99;">Attraction successfully Updated</ngb-alert> -->
 

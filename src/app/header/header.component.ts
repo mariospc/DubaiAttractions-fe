@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     private spinner: NgxSpinnerService,
     ) { }
 
-  ngOnInit(): void {       
+  ngOnInit(): void {           
     if (JSON.parse(this.userService.getUserFromCookies('user')) !== undefined){     
       this.user = JSON.parse(this.userService.getUserFromCookies('user')).username;
     }
