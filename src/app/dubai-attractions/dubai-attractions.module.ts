@@ -12,6 +12,10 @@ import { ShareButtonModule } from 'ngx-sharebuttons/button';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { FormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+// require('dotenv').config();
+import { config } from 'dotenv'
+// import { from } from 'rxjs';
+
 
 
 

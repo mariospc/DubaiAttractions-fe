@@ -29,6 +29,7 @@ export class AttractionDetailsComponent implements OnInit {
   description = '';
   url = '';
   photo;
+  srcImage;
   fbIcon = faFacebookSquare;
   pinIcon = faPinterest;
   tweetIcon = faTwitterSquare;
@@ -51,12 +52,19 @@ export class AttractionDetailsComponent implements OnInit {
           this.lng = data['location'][0];
           this.lat = data['location'][1];
           this.photo = data['photo'];
+          0
+          if (data['photo'] === undefined){
+            this.srcImage = undefined;
+          }else {
+            this.srcImage = data['photo'].url
+          }
           this.spinner.hide();     
         });    
       });      
      }
 
   ngOnInit(): void {
+    
     this.spinner.show();
   }
 

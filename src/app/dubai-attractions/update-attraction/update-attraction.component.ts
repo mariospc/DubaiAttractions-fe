@@ -40,14 +40,11 @@ export class UpdateAttractionComponent implements OnInit {
       const id = data.get('id');      
       this.attractionsService.getAttractionByID(id).subscribe(data =>{         
         
-        // console.log('data',data);
-        
         this.objectId = data['objectId']                
         this.title = data['title'];
         this.short_info = data['short_info'];
         this.description = data['description'];
         this.url = data['url'];
-        
         this.lng = data['location'][0];
         this.lat = data['location'][1];
         
@@ -57,15 +54,13 @@ export class UpdateAttractionComponent implements OnInit {
           this.srcImage = data['photo'].url
         }
         this.photo = data['photo'];
-        
+
         this.spinner.hide();     
       });    
     });      
    }
 
-  ngOnInit(): void {
-    console.log('init');
-    
+  ngOnInit(): void {    
     this.imgURL = "https://via.placeholder.com/250x250?text=Up+to+5Mb+image";
 
   }

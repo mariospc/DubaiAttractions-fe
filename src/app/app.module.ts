@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule} from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { Router, RouterModule, Routes } from '@angular/router';
@@ -21,7 +20,6 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,

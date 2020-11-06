@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
 
   @ViewChild(LoginComponent) loginComponent:LoginComponent
   user;
+  responsive;
   view = false
   constructor(
     private router:Router,
@@ -30,11 +31,17 @@ export class HeaderComponent implements OnInit {
   goHome() {
     const url = '/attractions/'
     this.router.navigate([url]);
+    if (this.responsive){
+      this.responsive = false;
+    }
   }
 
   logIn(){
     this.view = true; 
     this.loginComponent.ngOnInit(); 
+    if (this.responsive){
+      this.responsive = false;
+    }
   }
 
   logOut(){
@@ -43,10 +50,21 @@ export class HeaderComponent implements OnInit {
       this.user = undefined;
       this.spinner.hide();
       this.goHome();
-    })
+    });
+    if (this.responsive){
+      this.responsive = false;
+    }
   }
 
   submitLogIn(username){
     this.user = username;    
+  }
+
+  changeHeaderStructure(){
+    if (this.responsive){
+      this.responsive = false;
+    }else {
+      this.responsive = true;
+    }
   }
 }
