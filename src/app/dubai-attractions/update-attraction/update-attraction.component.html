@@ -30,8 +30,8 @@
                 Location
                 <i class="fa fa-map-marker" style="font-size: 35px;"></i>
                 </span>
-                Langitude<input [(ngModel)] = "lng" />
-                Longitude<input [(ngModel)] = "lat" />
+                Langitude<input type="number" [(ngModel)] = "lng" />
+                Longitude<input type="number" [(ngModel)] = "lat" />
                 <agm-map [(latitude)]="lat" [(longitude)]="lng" style="width: auto; height: 500px;" [zoom]="15" [mapTypeId]="mapTypeId">
                 <agm-marker [(latitude)]="lat" [(longitude)]="lng"></agm-marker>
                 </agm-map>

@@ -23,9 +23,7 @@ export class AttractionComponent implements OnInit {
     ){
     
   }
-  ngOnInit(): void {  
-    console.log(this.attractionItem);
-            
+  ngOnInit(): void {              
     if (this.attractionItem.photo !== undefined){
       this.imgUrl = this.attractionItem.photo.url;
     }else {

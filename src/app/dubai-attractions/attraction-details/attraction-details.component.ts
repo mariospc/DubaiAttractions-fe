@@ -9,8 +9,6 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 
 
-
-
 @Component({
   selector: 'app-attraction-details',
   templateUrl: './attraction-details.component.html',
@@ -64,7 +62,7 @@ export class AttractionDetailsComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    
+    // console.log(document.getElementById("map"));
     this.spinner.show();
   }
 
@@ -74,7 +72,7 @@ export class AttractionDetailsComponent implements OnInit {
       attraction_id: this.objectId,
       title: this.title,
       url: this.url,
-      colaction: [this.lng, this.lat],
+      location: [this.lng, this.lat],
       short_info: this.short_info,
       description: this.description,
     }

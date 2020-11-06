@@ -30,7 +30,7 @@ export class UserService {
   }
 
   signUp(body){
-    return this.httpClient.post(this.userServicePref, body);
+    return this.httpClient.post(`${this.userServicePref}signup`, body);
   }
 
   getUserFromCookies(param){

@@ -47,11 +47,11 @@ export class LoginComponent implements OnInit {
 
   submitLogIn(data){    
     this.spinner.show()    
-    this.userService.logIn(data).subscribe(response =>{      
+    this.userService.logIn(data).subscribe(response =>{           
       this.incorrectData = false;
       this.logInDisplay = false;
-      this.userLogIn.emit(response['user'].username);
-      this.userService.setUserCookie(response['user']);
+      this.userLogIn.emit(response['username']);
+      this.userService.setUserCookie(response);
       this.spinner.hide();
     }, 
     (error: HttpErrorResponse) =>{

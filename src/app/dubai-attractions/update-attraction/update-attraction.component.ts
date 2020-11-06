@@ -28,6 +28,7 @@ export class UpdateAttractionComponent implements OnInit {
   imgURL;
   srcImage;
   mapTypeId = 'terrain';
+  photoLoad;
   constructor(
     private spinner: NgxSpinnerService,
     private attractionsService:AttractionsService,
@@ -52,7 +53,7 @@ export class UpdateAttractionComponent implements OnInit {
           this.srcImage = undefined;
         }else {
           this.srcImage = data['photo'].url
-        }
+        }        
         this.photo = data['photo'];
 
         this.spinner.hide();     
@@ -62,23 +63,26 @@ export class UpdateAttractionComponent implements OnInit {
 
   ngOnInit(): void {    
     this.imgURL = "https://via.placeholder.com/250x250?text=Up+to+5Mb+image";
-
+    this.photoLoad = false;
   }
 
   updateAttraction(){    
     
     this.spinner.show();
 
-    
-    const body = {
+    var body: {[k: string]: any} = {};
+
+    body = {
       attraction_id: this.objectId,
       title: this.title,
       url: this.url,
-      colaction: [this.lng, this.lat],
+      location: [this.lng, this.lat],
       short_info: this.short_info,
-      description: this.description,
-      photo: this.photo      
+      description: this.description
     }
+    if (this.photoLoad){
+      body.photo = this.photo
+    }    
     
     this.attractionsService.updateAttraction(body).subscribe(data =>{
       this.srcImage = body.photo;      
@@ -115,10 +119,12 @@ export class UpdateAttractionComponent implements OnInit {
     
         reader.onload = (_event) => {       
           this.photo = reader.result.toString().split(',')[1];
-          this.imgURL = reader.result;       
+          this.imgURL = reader.result;    
+          this.photoLoad = true; 
+            
         },
       error => {
-        console.log('😢 Oh no!', error);
+        console.log('error on resize', error);
       };
       
     });

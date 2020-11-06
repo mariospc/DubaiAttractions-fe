@@ -29,7 +29,7 @@ import { config } from 'dotenv'
   imports: [
     CommonModule,
     NgbModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCJwyWnufTsvPNTzZUjfEHjvM0X4JshIWY' }),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyDqj6WfTUnGwxn52QlYkTiuFfXZiyoFK9Y' }),
     NgxSpinnerModule,
     BrowserAnimationsModule,
     ShareButtonModule,
