@@ -13,14 +13,28 @@
       <a *ngIf = "user !== undefined" class="nav-link" style="float: right;">Welcome&nbsp;{{user}}!</a>
     </div>
 </div>
-<div *ngIf='responsive' class=".slide-rotate-hor-top" style="z-index: 90;position: absolute;top: 0;width: 50% ;background-color: teal;bottom: 0;right: 0;float: right;">
-  <a class="nav-link" (click)="goHome()">Home <span class="sr-only" style="color: white;">(current)</span></a>
-  <a class="nav-link">About</a>
-  <a class="nav-link" (click)="logIn()" id="logIn" *ngIf = "user == undefined" style="width: 10%;">Log&nbsp;In</a>
-  <a class="nav-link" (click)="logOut()" id="logOut" *ngIf = "user !== undefined" style="width: 10%;">Log&nbsp;Out</a>
-  <a *ngIf = "user !== undefined" class="nav-link" >{{user}}</a>
+<div *ngIf='responsive' class=".slide-rotate-hor-top" style="z-index: 90;position: absolute;top: 0;width: 50% ;right: 0;float: right;">
+  <ul class="nav flex-column" style="background-color: teal;bottom: 0;">
+    <li  class="nav-item">
+      <a class="nav-link" (click)="goHome()">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li  class="nav-item">
+      <a class="nav-link">About</a>
+    </li>
+    <li class="nav-item"> 
+      <a  class="nav-link" (click)="logIn()" id="logIn" *ngIf = "user == undefined" style="width: 10%;">Log&nbsp;In</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" class="nav-link" (click)="logOut()" id="logOut" *ngIf = "user !== undefined" style="width: 10%;">Log&nbsp;Out</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" *ngIf = "user !== undefined" class="nav-link" style="color: white;">Welcome {{user}}!</a>
+    </li>
+    <li>
+  </ul>
 </div>
 
-  <div style="width:fit-content; margin:auto;"> 
-    <app-login [logInDisplay]="view" (userLogIn)="submitLogIn($event)"></app-login>
-  </div>
+<div style="width:fit-content; margin:auto;"> 
+  <app-login [logInDisplay]="view" (userLogIn)="submitLogIn($event)"></app-login>
+</div>
+
